@@ -131,9 +131,10 @@ Add environment variables in Netlify dashboard:
 - Test SPA routing with direct URL access
 
 ### Asset Loading Issues
-- Ensure images are in `attached_assets` folder
-- Check import paths use `@assets/` prefix
-- Verify build output includes all assets
+- Ensure images are in `attached_assets` folder (for @assets imports) or `client/src/assets` folder
+- **Always use proper imports**: `import imageName from "@/assets/image.png"` instead of hardcoded paths
+- **Never use**: `/src/assets/image.png` or `/assets/image.png` in src attributes
+- Verify build output includes all assets (check for asset files like `founder-[hash].png` in build logs)
 
 ## Support
 For deployment issues:

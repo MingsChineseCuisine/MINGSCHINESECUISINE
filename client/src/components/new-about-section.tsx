@@ -13,6 +13,7 @@ import {
   ArrowRight,
   PlayCircle,
 } from "lucide-react";
+import founderImage from "@/assets/founder.png";
 
 // Milestones data for the carousel
 const milestones = [
@@ -618,7 +619,7 @@ export default function NewAboutSection() {
                       <div className="relative inline-block">
                         <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full blur-xl scale-125 opacity-20"></div>
                         <img
-                          src="/src/assets/founder.png"
+                          src={founderImage}
                           alt="Founder - Sumeet Birhade"
                           className="relative w-48 h-48 rounded-full object-cover shadow-2xl hover:scale-105 transition-transform duration-500 border-4 border-orange-500/30"
                         />
@@ -831,7 +832,7 @@ export default function NewAboutSection() {
                         <div className="relative inline-block">
                           <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full blur-xl scale-125 opacity-20"></div>
                           <img
-                            src="/src/assets/founder.png"
+                            src={founderImage}
                             alt="Founder - Sumeet Birhade"
                             className="relative w-72 h-72 xl:w-80 xl:h-80 rounded-full object-cover shadow-2xl hover:scale-105 transition-transform duration-500 border-4 border-orange-500/30"
                           />
