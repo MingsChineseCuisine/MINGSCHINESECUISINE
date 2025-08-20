@@ -21,7 +21,7 @@ export default function Footer() {
               data-testid="text-footer-logo"
               className="text-2xl font-display font-bold text-ming-orange mb-4"
             >
-              MINGS'S CHINESE CUISINE
+              MINg'S CHINESE CUISINE
             </h3>
             <p
               data-testid="text-footer-description"
