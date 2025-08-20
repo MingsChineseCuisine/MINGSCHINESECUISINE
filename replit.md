@@ -2,6 +2,8 @@
 
 Ming's Chinese Cuisine is a dynamic restaurant website built with React, Express, and PostgreSQL. The application showcases authentic Chinese cuisine through an immersive user experience featuring video backgrounds, scroll animations, and a modern design system. The website includes sections for menu browsing, table reservations, restaurant information, photo gallery, and contact forms, all styled with a distinctive orange, black, and white color scheme that reflects traditional Chinese aesthetics.
 
+**DEPLOYMENT STATUS**: The project has been configured for dual deployment - it works both as a full-stack application on Replit and as a static site on Netlify with mock data for demonstration purposes.
+
 # User Preferences
 
 Preferred communication style: Simple, everyday language.
@@ -44,6 +46,38 @@ Preferred communication style: Simple, everyday language.
 - **Build Process**: Separate client and server builds with esbuild for server bundling
 - **Development Server**: Integrated Vite development server with Express backend
 - **Asset Management**: Static asset serving with proper path resolution
+
+# Deployment Configuration
+
+## Dual Deployment Support
+The project supports deployment on two platforms:
+
+### Replit (Full-Stack)
+- Complete Express.js backend with PostgreSQL integration
+- Real-time API endpoints for menu, reservations, and contact forms
+- Development and production environments
+- Session management and authentication ready
+
+### Netlify (Static SPA)
+- Static site deployment with mock data system
+- Client-side routing with SPA configuration
+- Optimized build process for static hosting
+- Performance optimizations (caching, compression)
+
+## Netlify-Specific Features
+- **netlify.toml**: Configuration for build settings and redirects
+- **Mock Data System**: Client-side data simulation in `client/src/lib/mockData.ts`
+- **Conditional API Client**: Environment-aware API layer in `client/src/lib/apiClient.ts`
+- **Static Build Script**: Custom build process in `build-netlify.js`
+- **SPA Routing**: All routes redirect to index.html for client-side routing
+
+## Files Added for Netlify
+- `netlify.toml` - Netlify configuration
+- `build-netlify.js` - Custom build script
+- `client/src/lib/mockData.ts` - Mock data service
+- `client/src/lib/netlifyQueryClient.ts` - Netlify-specific query client
+- `client/src/lib/apiClient.ts` - Universal API client
+- `NETLIFY_DEPLOYMENT.md` - Comprehensive deployment guide
 
 # External Dependencies
 

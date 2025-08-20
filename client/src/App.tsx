@@ -1,5 +1,6 @@
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
+import { netlifyQueryClient, isNetlifyBuild } from "./lib/netlifyQueryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,8 +17,11 @@ function Router() {
 }
 
 function App() {
+  // Use appropriate query client based on deployment environment
+  const client = isNetlifyBuild ? netlifyQueryClient : queryClient;
+  
   return (
-    <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={client}>
       <TooltipProvider>
         <Toaster />
         <Router />
