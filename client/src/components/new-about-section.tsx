@@ -287,6 +287,7 @@ export default function NewAboutSection() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [customerCount, setCustomerCount] = useState(0);
   const [isInView, setIsInView] = useState(false);
+  const counterRef = useRef<HTMLDivElement>(null);
 
   // Auto-rotate slides for the carousel
   useEffect(() => {
@@ -315,18 +316,44 @@ export default function NewAboutSection() {
           setIsInView(true);
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.1 }, // Lower threshold for better mobile detection
     );
 
-    const section = document
-      .querySelector('[data-testid="text-journey-title"]')
-      ?.closest("div")?.parentElement;
-    if (section) {
-      observer.observe(section);
+    // Use the ref directly if available
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    } else {
+      // Fallback to multiple DOM query methods
+      let section = document.querySelector('[data-testid="text-journey-title"]')?.closest("div")?.parentElement;
+      
+      if (!section) {
+        section = document.querySelector('[data-testid="customer-counter"]')?.closest(".bg-gradient-to-br");
+      }
+      
+      if (!section) {
+        section = document.querySelector('[alt="Founder - Sumeet Birhade"]')?.closest(".rounded-3xl");
+      }
+
+      if (section) {
+        observer.observe(section);
+      }
+    }
+
+    // Mobile fallback: Start counter after a short delay if intersection observer fails
+    const isMobile = window.innerWidth < 1024;
+    if (isMobile && !isInView) {
+      const mobileTimer = setTimeout(() => {
+        setIsInView(true);
+      }, 2000); // Start animation after 2 seconds on mobile
+      
+      return () => {
+        observer.disconnect();
+        clearTimeout(mobileTimer);
+      };
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isInView]);
 
   const { scrollYProgress } = useScroll();
   const storyRef = useRef(null);
@@ -608,7 +635,7 @@ export default function NewAboutSection() {
               {/* Mobile Layout: Stacked Sections */}
               <div className="lg:hidden space-y-8">
                 {/* Founder Profile Section - Mobile */}
-                <div className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
+                <div ref={counterRef} className="bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl p-6 shadow-2xl relative overflow-hidden">
                   {/* Decorative Elements */}
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-orange-200/20 to-transparent rounded-full -translate-y-10 translate-x-10"></div>
                   <div className="absolute bottom-0 left-0 w-16 h-16 bg-gradient-to-tr from-orange-200/15 to-transparent rounded-full translate-y-8 -translate-x-8"></div>
@@ -670,7 +697,7 @@ export default function NewAboutSection() {
                           Years
                         </p>
                       </div>
-                      <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-orange-400/30">
+                      <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 text-center border border-orange-400/30" data-testid="customer-counter">
                         <div
                           className="text-2xl font-bold text-orange-400"
                           style={{ fontFamily: "Poppins, sans-serif" }}
