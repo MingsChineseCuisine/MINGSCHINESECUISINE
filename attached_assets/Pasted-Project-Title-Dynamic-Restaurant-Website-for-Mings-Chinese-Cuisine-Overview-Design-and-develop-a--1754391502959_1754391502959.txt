@@ -1,0 +1,106 @@
+Project Title:
+Dynamic Restaurant Website for Mings Chinese Cuisine
+
+Overview:
+Design and develop a modern, visually engaging, and fully responsive dynamic website for Mings Chinese Cuisine, a premium Chinese restaurant. The website should reflect the vibrant and traditional Chinese dining experience, using a color scheme of orange, black, and white, with strong visual emphasis on food, ambiance, and customer experience.
+
+✅ Key Requirements:
+🖌️ Design & Theme
+Color Palette: Dominant Orange (#FFA500), Deep Black (#000000), Pure White (#FFFFFF).
+
+Use a modern, bold font for titles and a clean, readable font for body text.
+
+Utilize Chinese cultural motifs subtly (e.g., chopsticks, bamboo, lanterns).
+
+Include hover animations, scroll animations, and parallax effects for sections.
+
+📹 Dynamic Media
+A video background or dynamic hero section on the homepage showing restaurant ambiance, cooking, and food plating.
+
+Image sliders/gallery with interactive transitions.
+
+Sections featuring animated dish reveals or chef interviews.
+
+Integrate realtime Instagram feed or CMS-managed gallery.
+
+🧩 Pages & Sections
+Home
+
+Hero section with video background.
+
+Welcome message with dynamic text animation.
+
+Featured dishes (with animated entry on scroll).
+
+Call to action: “Reserve a Table” or “Order Online”.
+
+About Us
+
+Story of Mings Chinese Cuisine.
+
+Images of the restaurant interior.
+
+Chef bios with hover animations.
+
+Menu
+
+Dynamic, filterable menu by category (Starters, Main Course, Noodles, etc.).
+
+Each dish should include image, description, and price with hover or click-to-expand animation.
+
+Gallery
+
+Masonry or carousel gallery with lightbox effect.
+
+Videos and high-resolution images of food and events.
+
+Branches/Locations
+
+Google Maps integration.
+
+Address, contact number, open hours.
+
+Reservation
+
+Dynamic reservation form (with backend integration).
+
+Table selection, date/time picker.
+
+Order Online
+
+Redirect or embed from food ordering platforms.
+
+Or custom cart system if in-house ordering is developed.
+
+Contact Us
+
+Inquiry form with validation.
+
+Location, phone number, social icons.
+
+🧠 Functionality
+
+Responsive design for mobile, tablet, and desktop.
+
+SEO optimized.
+
+Fast-loading with media compression.
+
+Social sharing integration.
+
+Basic accessibility (alt text, color contrast).
+
+🔄 Animations
+Page load animations (fade-in, scale, slide).
+
+Scroll-based animations (text reveal, parallax).
+
+Interactive button hover effects.
+
+Section transitions with Lottie or CSS animations.
+
+Optional Features:
+
+Customer testimonials with animation carousel.
+
+Newsletter subscription section.
