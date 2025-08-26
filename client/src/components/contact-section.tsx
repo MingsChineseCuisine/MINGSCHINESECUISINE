@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import emailjs from '@emailjs/browser';
 import {
   insertReservationSchema,
   type InsertReservation,
 } from "@shared/schema";
-import { apiRequest } from "@/lib/apiClient";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -29,9 +28,14 @@ import {
   Youtube,
 } from "lucide-react";
 
+// EmailJS configuration
+const EMAILJS_SERVICE_ID = 'service_dtedoeb';
+const EMAILJS_TEMPLATE_ID = 'template_yg9gdth';
+const EMAILJS_PUBLIC_KEY = 'iTnrkG0kUSWj67DeT';
+
 export default function ContactSection() {
   const { toast } = useToast();
-  const queryClient = useQueryClient();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<InsertReservation>({
     resolver: zodResolver(insertReservationSchema),
@@ -47,32 +51,69 @@ export default function ContactSection() {
     },
   });
 
-  const reservationMutation = useMutation({
-    mutationFn: async (data: InsertReservation) => {
-      return apiRequest("POST", "/api/reservations", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Reservation Confirmed!",
-        description:
-          "Thank you for your reservation. We will contact you shortly to confirm the details.",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/reservations"] });
-    },
-    onError: (error: any) => {
+  const formatTimeSlot = (time: string) => {
+    const [hours, minutes] = time.split(":");
+    const hour = parseInt(hours);
+    const ampm = hour >= 12 ? "PM" : "AM";
+    const displayHour = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
+    return `${displayHour}:${minutes} ${ampm}`;
+  };
+
+  const formatDateForEmail = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
+  const onSubmit = async (data: InsertReservation) => {
+    setIsSubmitting(true);
+
+    try {
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phone: data.phone,
+        date: formatDateForEmail(data.date),
+        time: formatTimeSlot(data.time),
+        guests: data.guests === 1 ? '1 Guest' : `${data.guests} Guests`,
+        message: data.message || 'No special requests'
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+
+      if (result.status === 200) {
+        toast({
+          title: "Reservation Submitted Successfully! 🎉",
+          description: "Thank you for your reservation. We will contact you shortly to confirm the details.",
+        });
+        
+        // Reset the form
+        form.reset();
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('EmailJS Error:', error);
       toast({
         title: "Reservation Failed",
-        description:
-          error.message ||
-          "There was an error processing your reservation. Please try again.",
+        description: "There was an error processing your reservation. Please try calling us directly at 075069 69333.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: InsertReservation) => {
-    reservationMutation.mutate(data);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const timeSlots = [
@@ -87,14 +128,6 @@ export default function ContactSection() {
     "19:30",
     "20:00",
   ];
-
-  const formatTimeSlot = (time: string) => {
-    const [hours, minutes] = time.split(":");
-    const hour = parseInt(hours);
-    const ampm = hour >= 12 ? "PM" : "AM";
-    const displayHour = hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
-    return `${displayHour}:${minutes} ${ampm}`;
-  };
 
   return (
     <section
@@ -409,11 +442,11 @@ export default function ContactSection() {
                 <Button
                   type="submit"
                   data-testid="button-submit-reservation"
-                  disabled={reservationMutation.isPending}
-                  className="w-full bg-ming-orange hover:bg-orange-600 text-white py-2.5 lg:py-4 rounded-lg transition-colors duration-300 font-semibold"
+                  disabled={isSubmitting}
+                  className="w-full bg-ming-orange hover:bg-orange-600 text-white py-2.5 lg:py-4 rounded-lg transition-colors duration-300 font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {reservationMutation.isPending
-                    ? "Making Reservation..."
+                  {isSubmitting
+                    ? "Sending Reservation..."
                     : "Make Reservation"}
                 </Button>
               </form>
