@@ -251,26 +251,17 @@ export default function MenuSection() {
                   key={index}
                   className="flex-shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 xl:w-96"
                 >
-                  <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-200">
-                    <div className="aspect-square relative">
-                      <img
-                        src={dish.image}
-                        alt={dish.name}
-                        loading={isVisible ? "eager" : "lazy"}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        style={{ 
-                          willChange: "transform", // Optimize for transforms
-                          transform: "translate3d(0, 0, 0)" // Force hardware acceleration
-                        }}
-                      />
-                      {/* Mobile-friendly overlay with dish info */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity duration-300">
-                        <div className="absolute bottom-0 left-0 right-0 p-4">
-                          <h4 className="text-white font-semibold text-sm sm:text-base mb-1">{dish.name}</h4>
-                          <p className="text-white/80 text-xs sm:text-sm line-clamp-2">{dish.description}</p>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="aspect-square relative">
+                    <img
+                      src={dish.image}
+                      alt={dish.name}
+                      loading={isVisible ? "eager" : "lazy"}
+                      className="w-full h-full object-cover"
+                      style={{ 
+                        willChange: "transform",
+                        transform: "translate3d(0, 0, 0)"
+                      }}
+                    />
                   </div>
                 </div>
               );
