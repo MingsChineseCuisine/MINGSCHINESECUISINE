@@ -34,7 +34,7 @@ export default function HeroSection() {
               minHeight: "100%",
               pointerEvents: "none",
             }}
-            src="https://www.youtube.com/embed/GWaQiFeQ87g?autoplay=1&mute=1&loop=1&playlist=GWaQiFeQ87g&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1"
+            src="https://www.youtube.com/embed/dsm4b__I1Nc?autoplay=1&mute=1&loop=1&playlist=dsm4b__I1Nc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1"
             title="Restaurant Background Video"
             frameBorder="0"
             allow="autoplay; encrypted-media"
