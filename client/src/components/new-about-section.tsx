@@ -691,7 +691,7 @@ export default function NewAboutSection() {
                           className="text-2xl font-bold text-orange-400"
                           style={{ fontFamily: "Poppins, sans-serif" }}
                         >
-                          <CountUp end={35} duration={2000} />
+                          <CountUp end={10} duration={2000} />
                         </div>
                         <p className="text-gray-300 text-sm font-medium">
                           Years
@@ -904,7 +904,7 @@ export default function NewAboutSection() {
                             className="text-lg font-bold text-orange-400"
                             style={{ fontFamily: "Poppins, sans-serif" }}
                           >
-                            <CountUp end={35} duration={2000} />
+                            <CountUp end={10} duration={2000} />
                           </div>
                           <p className="text-gray-300 text-xs font-medium">
                             Years

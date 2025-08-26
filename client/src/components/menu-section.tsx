@@ -229,19 +229,19 @@ export default function MenuSection() {
         <div className="relative mb-16 sm:mb-20 -mx-4 sm:-mx-6 lg:-mx-8">
           <div
             ref={scrollRef}
-            className="flex overflow-hidden overflow-x-auto space-x-3 sm:space-x-4 lg:space-x-6 px-4 sm:px-6 lg:px-8 scroll-smooth"
+            className="flex overflow-hidden space-x-3 sm:space-x-4 lg:space-x-6 px-4 sm:px-6 lg:px-8"
             style={{
-              scrollBehavior: "smooth",
+              scrollBehavior: "auto",
               msOverflowStyle: "none",
               scrollbarWidth: "none",
               width: "100vw",
               marginLeft: "calc(-50vw + 50%)",
-              WebkitOverflowScrolling: "touch", // iOS smooth scrolling
+              WebkitOverflowScrolling: "touch",
+              transform: "translate3d(0, 0, 0)", // Force hardware layer for iOS
+              backfaceVisibility: "hidden", // Prevent flickering on iOS
             }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
           >
             {/* Restore triple dishes for seamless loop like before */}
             {[...chineseDishes, ...chineseDishes, ...chineseDishes].map((dish, index) => {
