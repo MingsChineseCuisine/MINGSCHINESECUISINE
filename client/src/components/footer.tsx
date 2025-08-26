@@ -103,6 +103,15 @@ export default function Footer() {
                 </button>
               </li>
               <li>
+                <a
+                  href="/blog"
+                  data-testid="link-footer-blog"
+                  className="text-gray-300 hover:text-ming-orange transition-colors duration-300"
+                >
+                  Blog
+                </a>
+              </li>
+              <li>
                 <button
                   data-testid="link-footer-contact"
                   onClick={() => scrollToSection("contact")}

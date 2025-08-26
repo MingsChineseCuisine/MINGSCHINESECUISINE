@@ -7,6 +7,8 @@ import {
   type InsertMenuItem,
   type ContactMessage,
   type InsertContactMessage,
+  type BlogPost,
+  type InsertBlogPost,
 } from "@shared/schema";
 import { randomUUID } from "crypto";
 
@@ -22,6 +24,11 @@ export interface IStorage {
   getMenuItemsByCategory(category: string): Promise<MenuItem[]>;
 
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
+
+  getBlogPosts(): Promise<BlogPost[]>;
+  getBlogPost(slug: string): Promise<BlogPost | undefined>;
+  getBlogPostsByCategory(category: string): Promise<BlogPost[]>;
+  createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
 }
 
 export class MemStorage implements IStorage {
@@ -29,15 +36,18 @@ export class MemStorage implements IStorage {
   private reservations: Map<string, Reservation>;
   private menuItems: Map<string, MenuItem>;
   private contactMessages: Map<string, ContactMessage>;
+  private blogPosts: Map<string, BlogPost>;
 
   constructor() {
     this.users = new Map();
     this.reservations = new Map();
     this.menuItems = new Map();
     this.contactMessages = new Map();
+    this.blogPosts = new Map();
 
-    // Initialize with sample menu items
+    // Initialize with sample menu items and blog posts
     this.initializeMenuItems();
+    this.initializeBlogPosts();
   }
 
   private initializeMenuItems() {
@@ -165,6 +175,7 @@ export class MemStorage implements IStorage {
     const id = randomUUID();
     const reservation: Reservation = {
       ...insertReservation,
+      message: insertReservation.message || null,
       id,
       createdAt: new Date(),
     };
@@ -197,6 +208,186 @@ export class MemStorage implements IStorage {
     };
     this.contactMessages.set(id, message);
     return message;
+  }
+
+  private initializeBlogPosts() {
+    const sampleBlogPosts: InsertBlogPost[] = [
+      {
+        title: "10 Must-Try Chinese Dishes in Kalyan - A Food Lover's Guide to Ming's Chinese Cuisine",
+        slug: "must-try-chinese-dishes-kalyan-mings",
+        excerpt: "Discover the authentic flavors of Chinese cuisine right here in Kalyan! From spicy Schezwan dishes to comforting soups, explore our top 10 must-try dishes at Ming's Chinese Cuisine.",
+        content: `<article>
+          <h2>Welcome to Ming's Chinese Cuisine - Kalyan's Premier Chinese Restaurant</h2>
+          <p>Located in the heart of Kalyan, Thane, Maharashtra, Ming's Chinese Cuisine has been serving authentic Chinese food to families and food lovers for years. Our restaurant combines traditional Chinese cooking techniques with local tastes to create an unforgettable dining experience.</p>
+          
+          <h2>Top 10 Must-Try Dishes at Ming's Chinese Cuisine</h2>
+          
+          <h3>1. Veg Schezwan Spring Roll - ₹189</h3>
+          <p>Our signature <strong>Veg Schezwan Spring Roll</strong> is perfect for those seeking <strong>Chinese food in Kalyan</strong>. These crispy rolls are filled with fresh vegetables and served with our house-made Schezwan sauce. A perfect starter for your Chinese food journey!</p>
+          
+          <h3>2. Chicken Chilli - ₹299</h3>
+          <p>Experience the perfect balance of spice and flavor with our <strong>Chicken Chilli</strong>. This Indo-Chinese favorite features tender chicken pieces tossed in a fiery sauce with bell peppers and onions. It's one of the <strong>best Chinese dishes in Thane</strong>!</p>
+          
+          <h3>3. Veg Honey Crispy - ₹269</h3>
+          <p>Our <strong>Veg Honey Crispy</strong> combines sweet and savory flavors in perfect harmony. Crispy vegetables are glazed with honey and served with a tangy sauce. This dish showcases why we're known for <strong>authentic Chinese cuisine Maharashtra</strong>.</p>
+          
+          <h3>4. Schezwan Fried Rice - ₹219</h3>
+          <p>No Chinese meal is complete without our famous <strong>Schezwan Fried Rice Kalyan</strong>. Made with perfectly cooked rice, fresh vegetables, and our signature Schezwan sauce, it's a local favorite that keeps customers coming back.</p>
+          
+          <h3>5. Hakka Noodles - ₹199</h3>
+          <p>Our <strong>best noodles in Thane</strong> are hand-pulled and tossed with fresh vegetables and aromatic spices. The Hakka noodles are a perfect blend of texture and flavor that represents authentic Chinese cooking.</p>
+          
+          <h3>6. Sweet and Sour Chicken - ₹319</h3>
+          <p>This colorful dish features tender chicken pieces in a vibrant sweet and sour sauce with pineapple, bell peppers, and onions. It's a crowd-pleaser that showcases our expertise in balancing flavors.</p>
+          
+          <h3>7. Veg Manchurian (Dry/Gravy) - ₹229</h3>
+          <p>Choose between dry or gravy style for this Indo-Chinese favorite. Our Veg Manchurian features perfectly spiced vegetable balls in a flavorful sauce that's become synonymous with <strong>Chinese food near me</strong> searches in Kalyan.</p>
+          
+          <h3>8. Hot and Sour Soup - ₹149</h3>
+          <p>Start your meal with our traditional <strong>Hot and Sour Soup</strong>. This warming soup combines the perfect balance of heat and tanginess with mushrooms, tofu, and vegetables.</p>
+          
+          <h3>9. Prawn Salt and Pepper - ₹399</h3>
+          <p>Fresh prawns are lightly battered and seasoned with salt, pepper, and aromatic spices. This dish showcases our commitment to fresh seafood and authentic Cantonese cooking techniques.</p>
+          
+          <h3>10. Date Pancakes - ₹179</h3>
+          <p>End your meal on a sweet note with our traditional Chinese <strong>Date Pancakes</strong>. These delicate pancakes filled with sweet date paste offer an authentic taste of Chinese dessert culture.</p>
+          
+          <h2>Why Choose Ming's Chinese Cuisine in Kalyan?</h2>
+          <ul>
+            <li><strong>Authentic flavors</strong>: We use traditional Chinese cooking techniques and authentic ingredients</li>
+            <li><strong>Fresh ingredients</strong>: Daily sourced vegetables and premium quality meats</li>
+            <li><strong>Family-friendly</strong>: Perfect for family dinners, corporate meetings, and special occasions</li>
+            <li><strong>Local favorite</strong>: Trusted by Kalyan residents for consistent quality and taste</li>
+            <li><strong>Reasonable prices</strong>: Quality Chinese food at affordable prices</li>
+          </ul>
+          
+          <h2>Visit Ming's Chinese Cuisine Today!</h2>
+          <p>Experience the <strong>best Chinese restaurant in Kalyan</strong> and discover why food lovers across Thane choose Ming's for their Chinese cuisine cravings. Whether you're searching for "Chinese food in Kalyan" or "best Chinese restaurant near me," Ming's Chinese Cuisine delivers an authentic taste of China right in your neighborhood.</p>
+          
+          <p><em>Location: Kalyan, Thane, Maharashtra, India</em><br>
+          <em>Website: mingschinesecuisine.in</em></p>
+        </article>`,
+        metaTitle: "10 Must-Try Chinese Dishes in Kalyan | Ming's Chinese Cuisine - Best Chinese Restaurant",
+        metaDescription: "Discover the top 10 authentic Chinese dishes at Ming's Chinese Cuisine in Kalyan, Thane. From Schezwan Spring Rolls to Hakka Noodles - experience the best Chinese food in Maharashtra.",
+        keywords: "Chinese food Kalyan, best Chinese restaurant Thane, Schezwan fried rice Kalyan, authentic Chinese cuisine Maharashtra, Chinese food near me, best noodles Thane, Ming's Chinese Cuisine",
+        category: "food-guide",
+        featuredImage: "/assets/blog/chinese-dishes-kalyan.jpg",
+        publishedAt: new Date("2024-08-20"),
+      },
+      {
+        title: "The Art of Schezwan Cuisine: Spice, Flavor, and Tradition at Ming's Chinese Restaurant",
+        slug: "schezwan-cuisine-art-mings-chinese-kalyan",
+        excerpt: "Explore the rich history and bold flavors of Schezwan cuisine at Ming's Chinese Cuisine in Kalyan. Learn about our authentic cooking techniques and signature Schezwan dishes.",
+        content: `<article>
+          <h2>Understanding Schezwan Cuisine: A Culinary Journey</h2>
+          <p>Schezwan (Sichuan) cuisine, one of China's most beloved regional cooking styles, has found its perfect home at <strong>Ming's Chinese Cuisine in Kalyan</strong>. Known for its bold flavors, numbing spices, and aromatic dishes, Schezwan cuisine represents the perfect marriage of heat, flavor, and tradition.</p>
+          
+          <h2>The History Behind Schezwan Flavors</h2>
+          <p>Originating from the Sichuan province in southwestern China, this cuisine is characterized by its use of Sichuan peppercorns, dried chilies, and fermented beans. At Ming's, we honor these traditional methods while adapting to local Indian palates, creating a unique fusion that's become synonymous with <strong>Chinese food in Kalyan</strong>.</p>
+          
+          <h2>Ming's Signature Schezwan Dishes</h2>
+          
+          <h3>Schezwan Fried Rice - Our Crown Jewel</h3>
+          <p>Our <strong>Schezwan Fried Rice</strong> is more than just a dish - it's an experience. Each grain of rice is perfectly coated with our house-made Schezwan sauce, creating layers of flavor that build with every bite. The addition of fresh vegetables and aromatic spices makes it the <strong>best Schezwan fried rice in Thane</strong>.</p>
+          
+          <h3>Schezwan Chicken - Fire Meets Flavor</h3>
+          <p>Tender chicken pieces are wok-tossed with our signature Schezwan sauce, bell peppers, and onions. The result is a dish that delivers the perfect balance of heat and flavor, making it a favorite among those seeking <strong>spicy Chinese food in Maharashtra</strong>.</p>
+          
+          <h3>Schezwan Noodles - Comfort with a Kick</h3>
+          <p>Hand-pulled noodles are stir-fried with fresh vegetables and our authentic Schezwan sauce. Each strand carries the perfect amount of spice, making it a comforting yet exciting meal option.</p>
+          
+          <h2>The Ming's Schezwan Secret</h2>
+          <p>What sets our Schezwan dishes apart is our commitment to authenticity. We prepare our Schezwan sauce fresh daily using:</p>
+          <ul>
+            <li><strong>Dried red chilies</strong> sourced for their perfect heat level</li>
+            <li><strong>Sichuan peppercorns</strong> for that distinctive numbing sensation</li>
+            <li><strong>Fermented black beans</strong> for depth of flavor</li>
+            <li><strong>Fresh garlic and ginger</strong> for aromatic foundation</li>
+            <li><strong>Quality soy sauce</strong> for umami richness</li>
+          </ul>
+          
+          <h2>Health Benefits of Schezwan Cuisine</h2>
+          <p>Beyond its incredible taste, Schezwan cuisine offers several health benefits:</p>
+          <ul>
+            <li><strong>Metabolism boost</strong>: The spices help increase metabolic rate</li>
+            <li><strong>Antioxidant properties</strong>: Chilies are rich in vitamins A and C</li>
+            <li><strong>Digestive benefits</strong>: Sichuan peppercorns aid digestion</li>
+            <li><strong>Heart health</strong>: Spicy foods can help improve cardiovascular health</li>
+          </ul>
+          
+          <h2>Pairing Suggestions for Schezwan Dishes</h2>
+          <p>To fully enjoy the Schezwan experience at Ming's, we recommend:</p>
+          <ul>
+            <li><strong>Start with</strong>: Hot and Sour Soup to prepare your palate</li>
+            <li><strong>Main course</strong>: Schezwan Chicken with Hakka Noodles</li>
+            <li><strong>Cool down with</strong>: Fresh lime water or Chinese tea</li>
+            <li><strong>End with</strong>: Light Chinese dessert like Date Pancakes</li>
+          </ul>
+          
+          <h2>Why Ming's is Kalyan's Schezwan Destination</h2>
+          <p>When searching for <strong>"best Schezwan food near me"</strong> in Kalyan or Thane, Ming's Chinese Cuisine stands out because:</p>
+          <ul>
+            <li><strong>Authentic preparation</strong>: Traditional techniques meet modern taste</li>
+            <li><strong>Quality ingredients</strong>: We never compromise on ingredient quality</li>
+            <li><strong>Consistent flavor</strong>: Every dish maintains our high standards</li>
+            <li><strong>Family recipes</strong>: Passed down through generations of Chinese cooking</li>
+            <li><strong>Local adaptation</strong>: Flavors crafted for Indian palates</li>
+          </ul>
+          
+          <h2>Experience Authentic Schezwan at Ming's</h2>
+          <p>Visit <strong>Ming's Chinese Cuisine</strong> in Kalyan and embark on a spicy journey through authentic Schezwan flavors. Whether you're a spice lover or new to Schezwan cuisine, our chefs will ensure you experience the perfect balance of heat, flavor, and satisfaction.</p>
+          
+          <p><em>Book your table today and discover why we're considered the <strong>best Chinese restaurant in Kalyan</strong> for authentic Schezwan cuisine!</em></p>
+        </article>`,
+        metaTitle: "Authentic Schezwan Cuisine in Kalyan | Ming's Chinese Restaurant - Best Spicy Chinese Food",
+        metaDescription: "Experience authentic Schezwan cuisine at Ming's Chinese Cuisine in Kalyan. Discover our signature spicy dishes, traditional cooking methods, and the art of Chinese flavors in Thane.",
+        keywords: "Schezwan cuisine Kalyan, spicy Chinese food Thane, best Schezwan restaurant Maharashtra, authentic Chinese spicy dishes, Schezwan fried rice Kalyan, Chinese restaurant near me",
+        category: "cuisine-culture",
+        featuredImage: "/assets/blog/schezwan-cuisine-art.jpg",
+        publishedAt: new Date("2024-08-18"),
+      },
+    ];
+
+    sampleBlogPosts.forEach((post) => {
+      const id = randomUUID();
+      const blogPost: BlogPost = { 
+        ...post, 
+        id, 
+        createdAt: new Date(),
+        featuredImage: post.featuredImage || null,
+        publishedAt: post.publishedAt || null
+      };
+      this.blogPosts.set(id, blogPost);
+    });
+  }
+
+  async getBlogPosts(): Promise<BlogPost[]> {
+    return Array.from(this.blogPosts.values()).sort((a, b) => 
+      new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime()
+    );
+  }
+
+  async getBlogPost(slug: string): Promise<BlogPost | undefined> {
+    return Array.from(this.blogPosts.values()).find(post => post.slug === slug);
+  }
+
+  async getBlogPostsByCategory(category: string): Promise<BlogPost[]> {
+    return Array.from(this.blogPosts.values())
+      .filter(post => post.category === category)
+      .sort((a, b) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime());
+  }
+
+  async createBlogPost(insertBlogPost: InsertBlogPost): Promise<BlogPost> {
+    const id = randomUUID();
+    const blogPost: BlogPost = {
+      ...insertBlogPost,
+      id,
+      createdAt: new Date(),
+      featuredImage: insertBlogPost.featuredImage || null,
+      publishedAt: insertBlogPost.publishedAt || null,
+    };
+    this.blogPosts.set(id, blogPost);
+    return blogPost;
   }
 }
 
