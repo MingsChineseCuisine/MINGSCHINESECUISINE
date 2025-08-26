@@ -243,8 +243,8 @@ export default function MenuSection() {
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
-            {/* Optimized: Only double dishes for better performance */}
-            {[...chineseDishes, ...chineseDishes].map((dish, index) => {
+            {/* Restore triple dishes for seamless loop like before */}
+            {[...chineseDishes, ...chineseDishes, ...chineseDishes].map((dish, index) => {
               const isVisible = index < 16; // Only load first 16 images immediately
               return (
                 <div
@@ -266,19 +266,6 @@ export default function MenuSection() {
                 </div>
               );
             })}
-          </div>
-          
-          {/* Mobile scroll indicators */}
-          <div className="flex justify-center mt-4 md:hidden">
-            <div className="flex space-x-1">
-              {[...Array(3)].map((_, index) => (
-                <div
-                  key={index}
-                  className="w-2 h-2 rounded-full bg-orange-300 opacity-50"
-                />
-              ))}
-            </div>
-            <p className="text-center text-sm text-gray-500 mt-2">Swipe to explore dishes</p>
           </div>
         </div>
 
