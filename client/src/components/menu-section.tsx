@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { type MenuItem } from "@shared/schema";
 
@@ -18,6 +18,9 @@ import vegStartersImg from "@assets/Veg Starters_1755545047915.png";
 
 export default function MenuSection() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const animationRef = useRef<number>();
 
   // Get menu items for the bottom section
   const { data: menuItems = [], isLoading } = useQuery<MenuItem[]>({
@@ -92,25 +95,100 @@ export default function MenuSection() {
     },
   ];
 
-  // Create smooth infinite scroll effect
-  useEffect(() => {
+  // Optimized smooth infinite scroll effect with mobile support
+  const startAutoScroll = useCallback(() => {
     const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+    if (!scrollContainer || !isAutoScrolling) return;
 
-    let animationId: number;
-    const speed = 0.5; // Slower, smoother speed
-
+    const isMobile = window.innerWidth < 768;
+    const speed = isMobile ? 0.3 : 0.5; // Slower speed on mobile
+    
     const smoothScroll = () => {
-      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 3) {
+      if (!isAutoScrolling || !scrollContainer) return;
+      
+      // Use shorter scroll distance calculation for better performance
+      const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      const currentScroll = scrollContainer.scrollLeft;
+      
+      if (currentScroll >= maxScroll * 0.66) { // Reset earlier for smoother transition
         scrollContainer.scrollLeft = 0;
       } else {
         scrollContainer.scrollLeft += speed;
       }
-      animationId = requestAnimationFrame(smoothScroll);
+      
+      animationRef.current = requestAnimationFrame(smoothScroll);
     };
 
-    animationId = requestAnimationFrame(smoothScroll);
-    return () => cancelAnimationFrame(animationId);
+    animationRef.current = requestAnimationFrame(smoothScroll);
+  }, [isAutoScrolling]);
+
+  // Handle touch interactions for mobile
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX);
+    setIsAutoScrolling(false);
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+    const scrollContainer = scrollRef.current;
+    
+    if (Math.abs(diff) > 50 && scrollContainer) { // Minimum swipe distance
+      if (diff > 0) {
+        // Swipe left - scroll right
+        scrollContainer.scrollLeft += 300;
+      } else {
+        // Swipe right - scroll left
+        scrollContainer.scrollLeft -= 300;
+      }
+    }
+    
+    // Resume auto-scroll after 3 seconds of inactivity
+    setTimeout(() => setIsAutoScrolling(true), 3000);
+  }, [touchStartX]);
+
+  // Mouse hover handlers for desktop
+  const handleMouseEnter = useCallback(() => {
+    setIsAutoScrolling(false);
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsAutoScrolling(true);
+  }, []);
+
+  // Start/stop auto-scroll based on state
+  useEffect(() => {
+    if (isAutoScrolling) {
+      startAutoScroll();
+    } else if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isAutoScrolling, startAutoScroll]);
+
+  // Pause animation when tab is not visible (performance optimization)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setIsAutoScrolling(false);
+      } else {
+        setIsAutoScrolling(true);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
   return (
@@ -147,39 +225,69 @@ export default function MenuSection() {
           </div>
         </div>
 
-        {/* Infinite Scrolling Carousel Section */}
+        {/* Optimized Infinite Scrolling Carousel Section */}
         <div className="relative mb-16 sm:mb-20 -mx-4 sm:-mx-6 lg:-mx-8">
           <div
             ref={scrollRef}
-            className="flex overflow-hidden space-x-3 sm:space-x-4 lg:space-x-6 px-4 sm:px-6 lg:px-8"
+            className="flex overflow-hidden overflow-x-auto space-x-3 sm:space-x-4 lg:space-x-6 px-4 sm:px-6 lg:px-8 scroll-smooth"
             style={{
-              scrollBehavior: "auto",
+              scrollBehavior: "smooth",
               msOverflowStyle: "none",
               scrollbarWidth: "none",
               width: "100vw",
               marginLeft: "calc(-50vw + 50%)",
+              WebkitOverflowScrolling: "touch", // iOS smooth scrolling
             }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
-            {/* Duplicate dishes for seamless loop */}
-            {[...chineseDishes, ...chineseDishes, ...chineseDishes].map(
-              (dish, index) => (
+            {/* Optimized: Only double dishes for better performance */}
+            {[...chineseDishes, ...chineseDishes].map((dish, index) => {
+              const isVisible = index < 16; // Only load first 16 images immediately
+              return (
                 <div
                   key={index}
                   className="flex-shrink-0 w-56 sm:w-64 md:w-72 lg:w-80 xl:w-96"
                 >
-                  <div className="group relative overflow-visible rounded-xl sm:rounded-2xl">
-                    <div className="aspect-square">
+                  <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-200">
+                    <div className="aspect-square relative">
                       <img
                         src={dish.image}
                         alt={dish.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading={isVisible ? "eager" : "lazy"}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        style={{ 
+                          willChange: "transform", // Optimize for transforms
+                          transform: "translate3d(0, 0, 0)" // Force hardware acceleration
+                        }}
                       />
+                      {/* Mobile-friendly overlay with dish info */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 md:opacity-0 transition-opacity duration-300">
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <h4 className="text-white font-semibold text-sm sm:text-base mb-1">{dish.name}</h4>
+                          <p className="text-white/80 text-xs sm:text-sm line-clamp-2">{dish.description}</p>
+                        </div>
+                      </div>
                     </div>
-
                   </div>
                 </div>
-              ),
-            )}
+              );
+            })}
+          </div>
+          
+          {/* Mobile scroll indicators */}
+          <div className="flex justify-center mt-4 md:hidden">
+            <div className="flex space-x-1">
+              {[...Array(3)].map((_, index) => (
+                <div
+                  key={index}
+                  className="w-2 h-2 rounded-full bg-orange-300 opacity-50"
+                />
+              ))}
+            </div>
+            <p className="text-center text-sm text-gray-500 mt-2">Swipe to explore dishes</p>
           </div>
         </div>
 
@@ -198,11 +306,16 @@ export default function MenuSection() {
                   data-testid={`card-menu-item-${index}`}
                   className="group bg-white rounded-2xl shadow-xl overflow-hidden border border-orange-100"
                 >
-                  <div className="relative overflow-visible">
+                  <div className="relative overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                      className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-105"
+                      style={{ 
+                        willChange: "transform",
+                        transform: "translate3d(0, 0, 0)"
+                      }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     <div className="absolute top-4 right-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
