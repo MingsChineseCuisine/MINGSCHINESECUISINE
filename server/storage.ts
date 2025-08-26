@@ -346,6 +346,171 @@ export class MemStorage implements IStorage {
         featuredImage: "/assets/blog/schezwan-cuisine-art.jpg",
         publishedAt: new Date("2024-08-18"),
       },
+      {
+        title: "Complete Menu Guide: Ming's Chinese Cuisine Kalyan - Prices, Reviews & Recommendations",
+        slug: "complete-menu-guide-mings-chinese-cuisine-kalyan-prices",
+        excerpt: "Comprehensive guide to Ming's Chinese Cuisine menu in Kalyan. Discover our complete range of appetizers, main courses, noodles, rice, soups and desserts with prices and customer recommendations.",
+        content: `<article>
+          <h2>Welcome to Ming's Chinese Cuisine - Complete Menu Experience</h2>
+          <p>Since 1990, <strong>Ming's Chinese Cuisine</strong> has been Kalyan's premier destination for authentic Chinese food. Located in the heart of Kalyan, Thane, we offer an extensive menu featuring traditional Chinese dishes adapted for Indian taste buds, making us the <strong>best Chinese restaurant in Kalyan</strong>.</p>
+
+          <h2>Appetizers & Starters - Perfect Beginning to Your Meal</h2>
+          
+          <h3>Vegetarian Starters (₹100 - ₹180)</h3>
+          <ul>
+            <li><strong>Veg Schezwan Spring Roll</strong> (₹120): Crispy rolls filled with fresh vegetables and aromatic spices, served with sweet and sour sauce</li>
+            <li><strong>Honey Chili Potato</strong> (₹140): Golden potato strips tossed in our signature honey chili sauce - a perfect blend of sweet and spicy</li>
+            <li><strong>Veg Manchurian Dry</strong> (₹130): Deep-fried vegetable balls coated in our tangy Manchurian sauce</li>
+            <li><strong>Chinese Bhel</strong> (₹120): Mumbai street food meets Chinese flavors - a unique fusion creation</li>
+            <li><strong>Crispy Corn Kernels</strong> (₹110): Sweet corn kernels with peppers and onions in Chinese seasonings</li>
+          </ul>
+
+          <h3>Non-Vegetarian Starters (₹160 - ₹320)</h3>
+          <ul>
+            <li><strong>Chicken Lollipop</strong> (₹220): Tender chicken drumettes marinated in Chinese spices and deep-fried to perfection</li>
+            <li><strong>Chili Chicken Dry</strong> (₹200): Boneless chicken pieces tossed with bell peppers in spicy chili sauce</li>
+            <li><strong>Prawn Salt & Pepper</strong> (₹280): Fresh prawns seasoned with aromatic salt and pepper spices</li>
+            <li><strong>Fish in Hot Garlic Sauce</strong> (₹260): Tender fish pieces in our signature hot garlic sauce</li>
+            <li><strong>Chicken 65 Chinese Style</strong> (₹190): South Indian favorite with a Chinese twist</li>
+          </ul>
+
+          <h2>Soups - Traditional Chinese Comfort</h2>
+          <p>Our soups are prepared using traditional Chinese techniques with fresh ingredients and authentic seasonings.</p>
+
+          <h3>Vegetarian Soups (₹80 - ₹120)</h3>
+          <ul>
+            <li><strong>Hot & Sour Soup</strong> (₹90): Perfect balance of spicy and tangy flavors with fresh vegetables</li>
+            <li><strong>Sweet Corn Soup</strong> (₹85): Creamy corn soup with a hint of Chinese seasonings</li>
+            <li><strong>Clear Vegetable Soup</strong> (₹80): Light and nutritious broth with fresh mixed vegetables</li>
+            <li><strong>Manchow Soup</strong> (₹95): Spicy soup topped with crispy fried noodles</li>
+          </ul>
+
+          <h3>Non-Vegetarian Soups (₹100 - ₹140)</h3>
+          <ul>
+            <li><strong>Chicken Hot & Sour Soup</strong> (₹110): Classic soup with tender chicken pieces</li>
+            <li><strong>Chicken Sweet Corn Soup</strong> (₹105): Creamy corn soup with shredded chicken</li>
+            <li><strong>Seafood Hot & Sour Soup</strong> (₹130): Mixed seafood in our signature spicy and tangy broth</li>
+          </ul>
+
+          <h2>Rice Varieties - The Heart of Chinese Cuisine</h2>
+          <p>All our rice dishes are prepared with premium basmati rice, wok-tossed with fresh ingredients and authentic Chinese sauces.</p>
+
+          <h3>Vegetarian Rice (₹120 - ₹180)</h3>
+          <ul>
+            <li><strong>Schezwan Fried Rice</strong> (₹140): Our signature rice dish with mixed vegetables in spicy Schezwan sauce</li>
+            <li><strong>Vegetable Fried Rice</strong> (₹130): Classic fried rice with seasonal vegetables and aromatic spices</li>
+            <li><strong>Garlic Fried Rice</strong> (₹135): Fragrant rice tossed with fresh garlic and soy sauce</li>
+            <li><strong>Mushroom Fried Rice</strong> (₹150): Fresh mushrooms with rice in Chinese seasonings</li>
+            <li><strong>Paneer Fried Rice</strong> (₹160): Cottage cheese cubes with rice and vegetables</li>
+          </ul>
+
+          <h3>Non-Vegetarian Rice (₹160 - ₹220)</h3>
+          <ul>
+            <li><strong>Chicken Fried Rice</strong> (₹170): Tender chicken pieces with perfectly seasoned rice</li>
+            <li><strong>Chicken Schezwan Rice</strong> (₹180): Spicy Schezwan sauce with chicken and mixed vegetables</li>
+            <li><strong>Mixed Fried Rice</strong> (₹200): Combination of chicken, prawns, and vegetables</li>
+            <li><strong>Egg Fried Rice</strong> (₹150): Simple yet flavorful rice with scrambled eggs</li>
+            <li><strong>Seafood Fried Rice</strong> (₹220): Mix of prawns and fish with aromatic rice</li>
+          </ul>
+
+          <h2>Noodles - Hand-Pulled Perfection</h2>
+          <p>Our noodles are prepared using traditional Chinese techniques, ensuring the perfect texture and flavor in every strand.</p>
+
+          <h3>Vegetarian Noodles (₹120 - ₹180)</h3>
+          <ul>
+            <li><strong>Hakka Noodles</strong> (₹130): Classic Chinese noodles with fresh vegetables</li>
+            <li><strong>Schezwan Noodles</strong> (₹140): Spicy noodles in our signature Schezwan sauce</li>
+            <li><strong>Chili Garlic Noodles</strong> (₹145): Aromatic noodles with fresh garlic and chilies</li>
+            <li><strong>Singapore Rice Noodles</strong> (₹160): Thin rice noodles with curry flavor</li>
+            <li><strong>American Chop Suey</strong> (₹170): Crispy noodles topped with sweet and sour gravy</li>
+          </ul>
+
+          <h3>Non-Vegetarian Noodles (₹150 - ₹200)</h3>
+          <ul>
+            <li><strong>Chicken Hakka Noodles</strong> (₹160): Classic noodles with tender chicken pieces</li>
+            <li><strong>Chicken Schezwan Noodles</strong> (₹170): Spicy Schezwan noodles with chicken</li>
+            <li><strong>Mixed Noodles</strong> (₹190): Combination of chicken and vegetables</li>
+            <li><strong>Seafood Noodles</strong> (₹200): Fresh seafood with aromatic noodles</li>
+          </ul>
+
+          <h2>Main Course - Authentic Chinese Flavors</h2>
+
+          <h3>Vegetarian Main Course (₹140 - ₹200)</h3>
+          <ul>
+            <li><strong>Paneer Chili Dry</strong> (₹180): Cottage cheese cubes in spicy chili sauce</li>
+            <li><strong>Veg Ball Manchurian</strong> (₹160): Mixed vegetable balls in Manchurian gravy</li>
+            <li><strong>Baby Corn Pepper Salt</strong> (₹150): Crispy baby corn with aromatic spices</li>
+            <li><strong>Mushroom in Hot Garlic Sauce</strong> (₹170): Fresh mushrooms in spicy garlic sauce</li>
+          </ul>
+
+          <h3>Non-Vegetarian Main Course (₹200 - ₹320)</h3>
+          <ul>
+            <li><strong>Sweet & Sour Chicken</strong> (₹240): Tender chicken in tangy sweet and sour sauce</li>
+            <li><strong>Chicken Manchurian Dry</strong> (₹220): Chicken balls in dry Manchurian sauce</li>
+            <li><strong>Ginger Chicken</strong> (₹230): Fresh ginger flavor with tender chicken pieces</li>
+            <li><strong>Fish in Black Bean Sauce</strong> (₹280): Fresh fish in authentic black bean sauce</li>
+            <li><strong>Prawn in Chili Sauce</strong> (₹300): Succulent prawns in spicy chili sauce</li>
+          </ul>
+
+          <h2>Combination Meals - Best Value Options</h2>
+          
+          <h3>Family Meals (₹500 - ₹1200)</h3>
+          <ul>
+            <li><strong>Family Veg Combo</strong> (₹600): Veg Spring Roll + Veg Fried Rice + Hakka Noodles + Hot & Sour Soup</li>
+            <li><strong>Family Non-Veg Combo</strong> (₹850): Chicken Lollipop + Chicken Fried Rice + Chicken Noodles + Chicken Soup</li>
+            <li><strong>Party Special</strong> (₹1200): Mixed starters + Multiple rice/noodles + Main course + Soups (Serves 4-6)</li>
+          </ul>
+
+          <h2>Desserts - Sweet Ending to Your Meal</h2>
+          <ul>
+            <li><strong>Date Pancakes</strong> (₹120): Traditional Chinese dessert with sweet dates</li>
+            <li><strong>Honey Noodles</strong> (₹110): Crispy noodles drizzled with honey</li>
+            <li><strong>Fried Ice Cream</strong> (₹140): Unique dessert with crispy coating and cold ice cream</li>
+          </ul>
+
+          <h2>Beverages (₹40 - ₹80)</h2>
+          <ul>
+            <li><strong>Chinese Tea</strong> (₹60): Traditional jasmine or green tea</li>
+            <li><strong>Fresh Lime Water</strong> (₹50): Perfect complement to spicy dishes</li>
+            <li><strong>Soft Drinks</strong> (₹40): Cola, Sprite, Fanta</li>
+            <li><strong>Lassi</strong> (₹60): Sweet or salted yogurt drink</li>
+          </ul>
+
+          <h2>Chef's Special Recommendations</h2>
+          <h3>Must-Try Combinations:</h3>
+          <ul>
+            <li><strong>Classic Combo:</strong> Chicken Lollipop + Chicken Fried Rice + Hot & Sour Soup</li>
+            <li><strong>Spice Lover's Choice:</strong> Schezwan Spring Rolls + Schezwan Noodles + Chili Chicken</li>
+            <li><strong>Family Favorite:</strong> Mixed starters + Veg/Chicken Fried Rice + Hakka Noodles</li>
+            <li><strong>Date Night Special:</strong> Honey Chili Potato + Sweet & Sour Chicken + Chinese Tea</li>
+          </ul>
+
+          <h2>Why Choose Ming's Chinese Cuisine in Kalyan?</h2>
+          <ul>
+            <li><strong>Authentic Flavors:</strong> Traditional Chinese cooking techniques</li>
+            <li><strong>Fresh Ingredients:</strong> Daily sourced vegetables and premium meats</li>
+            <li><strong>Reasonable Prices:</strong> Best value for money in Kalyan</li>
+            <li><strong>Family Friendly:</strong> Comfortable seating for all age groups</li>
+            <li><strong>Quick Service:</strong> Efficient kitchen and friendly staff</li>
+            <li><strong>Hygiene Standards:</strong> Clean kitchen and dining environment</li>
+          </ul>
+
+          <h2>Location & Contact Information</h2>
+          <p><strong>Address:</strong> Ming's Chinese Cuisine, Kalyan, Thane District, Maharashtra</p>
+          <p><strong>Timing:</strong> 11:30 AM to 11:00 PM (All days)</p>
+          <p><strong>Best Time to Visit:</strong> Lunch: 12 PM - 3 PM, Dinner: 7 PM - 10 PM</p>
+
+          <p>Experience the <strong>best Chinese food in Kalyan</strong> at Ming's Chinese Cuisine. Whether you're searching for "Chinese restaurant near me" or "best noodles in Thane," our extensive menu and authentic flavors make us the perfect choice for your Chinese food cravings.</p>
+
+          <p><em>Visit us today and discover why we're Kalyan's most trusted Chinese restaurant for over three decades!</em></p>
+        </article>`,
+        metaTitle: "Ming's Chinese Cuisine Menu Kalyan - Complete Price List 2024 | Best Chinese Restaurant",
+        metaDescription: "Explore Ming's Chinese Cuisine complete menu with prices in Kalyan. Discover our appetizers, main course, noodles, rice, soups from ₹80-₹320. Best Chinese food in Thane district.",
+        keywords: "Ming's Chinese Cuisine menu, Chinese restaurant menu Kalyan, Chinese food prices Thane, best Chinese restaurant menu Maharashtra, Schezwan noodles price Kalyan, Chinese food near me prices",
+        category: "menu-guide",
+        featuredImage: "/assets/blog/mings-menu-guide.jpg",
+        publishedAt: new Date("2024-08-22"),
+      },
     ];
 
     sampleBlogPosts.forEach((post) => {
