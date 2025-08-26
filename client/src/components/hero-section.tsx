@@ -93,11 +93,7 @@ export default function HeroSection() {
             </button>
             <button
               data-testid="button-view-menu-hero"
-              onClick={() =>
-                document
-                  .getElementById("menu")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              onClick={() => window.open("https://menu.mingschinesecuisine.in", "_blank")}
               className="border-2 border-white text-white px-8 py-3 md:px-12 md:py-4 text-base md:text-lg font-bold tracking-widest hover:bg-white hover:text-black transition-all duration-500 transform hover:scale-105 hover:shadow-2xl rounded-full"
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
