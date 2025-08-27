@@ -205,11 +205,7 @@ export default function ContactSection() {
                 <div>
                   <h4 className="font-semibold text-ming-dark-gray">Hours</h4>
                   <p data-testid="text-hours" className="text-gray-600">
-                    Mon-Thu: 11:30 AM - 9:30 PM
-                    <br />
-                    Fri-Sat: 11:30 AM - 10:30 PM
-                    <br />
-                    Sunday: 12:00 PM - 9:00 PM
+                    Mon-Sun: 11:30 AM - 11:30 PM
                   </p>
                 </div>
               </div>
