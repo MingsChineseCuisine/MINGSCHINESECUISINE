@@ -242,7 +242,7 @@ export default function ContactSection() {
                   <Facebook size={16} />
                 </a>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/mings_chinese_cuisine_kalyan_?igsh=MXVqcGk4ZHhvcjM5Yw=="
                   target="_blank"
                   data-testid="link-social-instagram"
                   className="bg-ming-orange text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-orange-600 transition-colors duration-300"

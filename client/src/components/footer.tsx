@@ -20,6 +20,7 @@ export default function Footer() {
             <h3
               data-testid="text-footer-logo"
               className="text-2xl font-display font-bold text-ming-orange mb-4"
+              style={{ fontFamily: "'Poppins', sans-serif" }}
             >
               MING'S CHINESE CUISINE
             </h3>
@@ -40,7 +41,7 @@ export default function Footer() {
                 <Facebook size={20} />
               </a>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/mings_chinese_cuisine_kalyan_?igsh=MXVqcGk4ZHhvcjM5Yw=="
                 target="_blank"
                 data-testid="link-footer-instagram"
                 className="text-gray-300 hover:text-ming-orange transition-colors duration-300"
