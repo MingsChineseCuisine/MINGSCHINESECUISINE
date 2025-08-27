@@ -18,6 +18,7 @@ import image1 from "@/assets/1_1756276448587.jpg";
 import image2 from "@/assets/2_1756276448585.jpg";
 import image3 from "@/assets/3_1756276448586.png";
 import image4 from "@/assets/4_1756276448587.png";
+import chefImage from "@/assets/Big_1756278159423.jpg";
 
 // Milestones data for the carousel
 const milestones = [
@@ -454,7 +455,7 @@ export default function NewAboutSection() {
                   </motion.div>
                 </div>
                 <img
-                  src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?q=80&w=3540&auto=format&fit=crop"
+                  src={chefImage}
                   alt="Chef plating a gourmet dish"
                   className="w-full h-auto rounded-lg shadow-lg z-10 relative"
                 />
