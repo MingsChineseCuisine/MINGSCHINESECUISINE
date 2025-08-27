@@ -23,7 +23,7 @@ const milestones = [
     description:
       "Ming's Chinese Cuisine was founded with a vision to bring authentic Chinese flavors to our community.",
     image:
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop",
+      "/attached_assets/1_1756276448587.jpg",
   },
   {
     year: "2005",
@@ -31,7 +31,7 @@ const milestones = [
     description:
       "Opened our second location and introduced traditional dim sum service to meet growing demand.",
     image:
-      "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
+      "/attached_assets/2_1756276448585.jpg",
   },
   {
     year: "2015",
@@ -39,7 +39,7 @@ const milestones = [
     description:
       "Completely redesigned with modern Chinese aesthetics while preserving traditional cooking methods.",
     image:
-      "https://images.unsplash.com/photo-1583394293214-28ded15ee548?w=600&h=400&fit=crop",
+      "/attached_assets/3_1756276448586.PNG",
   },
   {
     year: "2023",
@@ -47,7 +47,7 @@ const milestones = [
     description:
       "Received the prestigious 'Best Authentic Chinese Restaurant' award from the local culinary association.",
     image:
-      "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop",
+      "/attached_assets/4_1756276448587.png",
   },
 ];
 
