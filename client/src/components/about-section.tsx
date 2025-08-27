@@ -4,7 +4,7 @@ import founderImage from "@/assets/founder.png";
 
 const milestones = [
   {
-    year: "1995",
+    year: "2014",
     title: "Foundation",
     description:
       "Ming's Chinese Cuisine was founded with a vision to bring authentic Chinese flavors to our community.",
@@ -12,15 +12,15 @@ const milestones = [
       "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=400&fit=crop",
   },
   {
-    year: "2005",
+    year: "2018",
     title: "Expansion",
     description:
-      "Opened our second location and introduced traditional dim sum service to meet growing demand.",
+      "Introduced traditional Chinese cuisine to meet growing customer demand.",
     image:
       "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=600&h=400&fit=crop",
   },
   {
-    year: "2015",
+    year: "2020",
     title: "Modern Renovation",
     description:
       "Completely redesigned with modern Chinese aesthetics while preserving traditional cooking methods.",
@@ -85,7 +85,7 @@ export default function AboutSection() {
 
   const chefs = [
     {
-      name: "Master Chef Ming Wei",
+      name: "Mr.Sumeet Birhade",
       title: "Head Chef & Founder",
       description:
         "30+ years of experience in authentic Cantonese and Sichuan cuisine",
@@ -130,7 +130,7 @@ export default function AboutSection() {
               data-testid="text-about-description-1"
               className="text-lg text-gray-600 mb-6"
             >
-              Founded in 1990 by Master Chef Ming Wei, our restaurant began as a
+              Founded in 2014 by Mr.Sumeet Birhade, our restaurant began as a
               small family establishment with a simple mission: to bring
               authentic Chinese flavors to our community. What started as a
               humble 20-seat restaurant has grown into a culinary destination.

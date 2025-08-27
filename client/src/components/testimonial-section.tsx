@@ -262,7 +262,7 @@ const testimonials = [
     review:
       "Absolutely incredible! The flavors are authentic and the service is outstanding. Ming's has become our go-to place for special occasions.",
     image:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      "https://plus.unsplash.com/premium_photo-1682098109069-0e49e3b42884?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
   {
     id: 2,
@@ -271,7 +271,7 @@ const testimonials = [
     review:
       "The dim sum here is exceptional! Reminds me of the authentic flavors from my childhood. Highly recommend the steamed dumplings.",
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      "https://images.unsplash.com/flagged/photo-1571367034861-e6729ad9c2d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
   {
     id: 3,
@@ -280,7 +280,7 @@ const testimonials = [
     review:
       "Amazing atmosphere and even better food! The Peking duck was cooked to perfection. Will definitely be coming back soon.",
     image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      "https://images.unsplash.com/photo-1653379670414-68e7f2ed0ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
   {
     id: 4,
@@ -289,7 +289,7 @@ const testimonials = [
     review:
       "Best Chinese restaurant in the area! The staff is friendly and knowledgeable. Every dish we tried was bursting with flavor.",
     image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      "https://images.unsplash.com/photo-1534339480783-6816b68be29c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
   {
     id: 5,
@@ -307,7 +307,7 @@ const testimonials = [
     review:
       "Incredible value for money! Generous portions and authentic taste. The kung pao chicken is absolutely divine.",
     image:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      "https://plus.unsplash.com/premium_photo-1682089892133-556bde898f2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
   {
     id: 7,
@@ -316,7 +316,7 @@ const testimonials = [
     review:
       "The ambiance is perfect for date nights. Romantic lighting and exceptional service. The sweet and sour pork was amazing!",
     image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      "https://plus.unsplash.com/premium_photo-1682089897177-4dbc85aa672f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
   {
     id: 8,
@@ -325,7 +325,7 @@ const testimonials = [
     review:
       "Outstanding traditional Chinese cuisine! The chefs really know their craft. Every bite is a journey to authentic flavors.",
     image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
+      "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
 ];
 

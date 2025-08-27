@@ -352,7 +352,7 @@ export class MemStorage implements IStorage {
         excerpt: "Comprehensive guide to Ming's Chinese Cuisine menu in Kalyan. Discover our complete range of appetizers, main courses, noodles, rice, soups and desserts with prices and customer recommendations.",
         content: `<article>
           <h2>Welcome to Ming's Chinese Cuisine - Complete Menu Experience</h2>
-          <p>Since 1990, <strong>Ming's Chinese Cuisine</strong> has been Kalyan's premier destination for authentic Chinese food. Located in the heart of Kalyan, Thane, we offer an extensive menu featuring traditional Chinese dishes adapted for Indian taste buds, making us the <strong>best Chinese restaurant in Kalyan</strong>.</p>
+          <p>Since 2014, <strong>Ming's Chinese Cuisine</strong> has been Kalyan's premier destination for authentic Chinese food. Located in the heart of Kalyan, Thane, we offer an extensive menu featuring traditional Chinese dishes adapted for Indian taste buds, making us the <strong>best Chinese restaurant in Kalyan</strong>.</p>
 
           <h2>Appetizers & Starters - Perfect Beginning to Your Meal</h2>
           

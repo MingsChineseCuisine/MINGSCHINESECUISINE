@@ -23,21 +23,21 @@ import chefImage from "@/assets/Big_1756278159423.jpg";
 // Milestones data for the carousel
 const milestones = [
   {
-    year: "1995",
+    year: "2014",
     title: "Foundation",
     description:
       "Ming's Chinese Cuisine was founded with a vision to bring authentic Chinese flavors to our community.",
     image: image1,
   },
   {
-    year: "2005",
+    year: "2018",
     title: "Expansion",
     description:
-      "Opened our second location and introduced traditional dim sum service to meet growing demand.",
+      "Introduced traditional Chinese cuisine to meet growing customer demand.",
     image: image2,
   },
   {
-    year: "2015",
+    year: "2020",
     title: "Modern Renovation",
     description:
       "Completely redesigned with modern Chinese aesthetics while preserving traditional cooking methods.",
@@ -212,7 +212,7 @@ const TestimonialCarousel = () => {
   const [active, setActive] = useState(0);
   const testimonials = [
     {
-      text: "The culinary experience at Ming's is simply unmatched. Master Chef Ming Wei's passion shines through in every authentic dish.",
+      text: "The culinary experience at Ming's is simply unmatched. Mr.Sumeet Birhade's passion shines through in every authentic dish.",
       author: "David Chen",
       role: "Food Critic",
     },
@@ -418,7 +418,7 @@ export default function NewAboutSection() {
               className="text-lg sm:text-xl lg:text-xl xl:text-2xl text-gray-600 max-w-3xl lg:max-w-5xl xl:max-w-6xl mx-auto leading-relaxed font-medium"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}
             >
-              Since 1990, we've been crafting memorable dining experiences that
+              Since 2014, we've been crafting memorable dining experiences that
               combine tradition with authentic flavors.
             </p>
           </div>
@@ -489,16 +489,16 @@ export default function NewAboutSection() {
                 className="text-3xl font-semibold mb-6 text-black"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}
               >
-                Exceptional Dining Since 1990
+                Exceptional Dining Since 2014
               </h3>
               <p
                 className="text-gray-600 mb-6 leading-relaxed text-lg"
                 style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
               >
-                Founded by Master Chef Ming Wei, our restaurant began as a small
-                family establishment with a simple mission: to bring authentic
-                Chinese flavors to our community. What started as a humble
-                20-seat restaurant has grown into a beloved culinary
+                Founded by Mr.Sumeet Birhade, our restaurant began in 2014 as a
+                small family establishment with a simple mission: to bring
+                authentic Chinese flavors to our community. What started as a
+                humble 20-seat restaurant has grown into a beloved culinary
                 destination.
               </p>
               <p

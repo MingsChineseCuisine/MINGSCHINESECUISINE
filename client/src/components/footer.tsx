@@ -28,7 +28,7 @@ export default function Footer() {
               className="text-gray-300 mb-4"
             >
               Authentic Chinese cuisine served with passion and tradition since
-              1990.
+              2014.
             </p>
             <div className="flex space-x-4">
               <a
