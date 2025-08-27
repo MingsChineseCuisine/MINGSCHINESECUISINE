@@ -94,6 +94,14 @@
 //   );
 // }
 import { useState } from "react";
+import gallery1 from "@/assets/gallary1_1756277345984.png";
+import gallery2 from "@/assets/gallary2_1756277345985.png";
+import gallery3 from "@/assets/gallary3_1756277345985.png";
+import gallery4 from "@/assets/gallary4_1756277345985.png";
+import gallery5 from "@/assets/gallary5_1756277345985.png";
+import gallery6 from "@/assets/gallary6_1756277345984.png";
+import gallery7 from "@/assets/gallary7_1756277345984.png";
+import gallery8 from "@/assets/gallary8_1756277345984.jpg";
 
 // Mock Lightbox component for demonstration
 const Lightbox = ({ src, alt, onClose }: { src: string; alt: string; onClose: () => void }) => (
@@ -122,36 +130,36 @@ export default function GallerySection() {
 
   const galleryImages = [
     {
-      src: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Chocolate drip cake with decorative piping",
+      src: gallery1,
+      alt: "Ming's Chinese Cuisine restaurant exterior with vibrant signage",
     },
     {
-      src: "https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000",
-      alt: "Elegant fine dining setup with wine glasses",
+      src: gallery2,
+      alt: "Ming's restaurant front entrance with illuminated logo",
     },
     {
-      src: "https://cdn.grofers.com/assets/search/usecase/banner/prawns_manchurian_01.png?w=800&h=600&auto=format&fit=crop",
-      alt: "Delicious paella with seafood and saffron",
+      src: gallery3,
+      alt: "Ming's Chinese Cuisine logo on glass door",
     },
     {
-      src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-      alt: "Traditional dim sum steamer baskets",
+      src: gallery4,
+      alt: "Delicious Chinese dishes plated beautifully with garnish",
     },
     {
-      src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1200",
-      alt: "Modern restaurant interior with elegant lighting",
+      src: gallery5,
+      alt: "Restaurant interior with festive decorations and elegant ambiance",
     },
     {
-      src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      alt: "Gourmet plated dish with artistic presentation",
+      src: gallery6,
+      alt: "Ming's restaurant exterior with anniversary celebration decorations",
     },
     {
-      src: "https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=900",
-      alt: "Fresh salad with seasonal vegetables",
+      src: gallery7,
+      alt: "Modern dining area interior with contemporary lighting",
     },
     {
-      src: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=700",
-      alt: "Artisanal dessert with chocolate decoration",
+      src: gallery8,
+      alt: "Ming's storefront with traditional decorative elements",
     },
   ];
 
