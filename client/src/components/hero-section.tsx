@@ -1,12 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import mingsLogo from "@/assets/mings-logo.png";
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const scrollToNext = () => {
     const welcomeSection = document.getElementById("welcome");
     if (welcomeSection) {
       welcomeSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Video URL with quality parameters for mobile
+  const getVideoUrl = () => {
+    const baseUrl = "https://www.youtube.com/embed/dsm4b__I1Nc";
+    const commonParams = "autoplay=1&mute=1&loop=1&playlist=dsm4b__I1Nc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1";
+    
+    if (isMobile) {
+      // Force higher quality for mobile devices
+      return `${baseUrl}?${commonParams}&vq=hd720&hd=1&quality=hd720`;
+    } else {
+      // Keep original for desktop
+      return `${baseUrl}?${commonParams}`;
     }
   };
 
@@ -34,7 +61,7 @@ export default function HeroSection() {
               minHeight: "100%",
               pointerEvents: "none",
             }}
-            src="https://www.youtube.com/embed/dsm4b__I1Nc?autoplay=1&mute=1&loop=1&playlist=dsm4b__I1Nc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1"
+            src={getVideoUrl()}
             title="Restaurant Background Video"
             frameBorder="0"
             allow="autoplay; encrypted-media"
