@@ -314,7 +314,7 @@ const testimonials = [
     name: "Meera Iyer",
     rating: 5,
     review:
-      "The ambiance is perfect for date nights. Romantic lighting and exceptional service. The sweet and sour pork was amazing!",
+      "The ambiance is perfect for date nights. Romantic lighting and exceptional service. The sweet and sour chicken soup was amazing!",
     image:
       "https://plus.unsplash.com/premium_photo-1682089897177-4dbc85aa672f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80",
   },
