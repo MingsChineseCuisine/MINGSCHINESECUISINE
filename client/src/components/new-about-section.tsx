@@ -1075,7 +1075,7 @@ export default function NewAboutSection() {
       <VideoModal
         isOpen={videoModalOpen}
         onClose={() => setVideoModalOpen(false)}
-        videoUrl="https://www.youtube.com/embed/dA0VGEbbw4g" // Example YouTube video of a chef cooking
+        videoUrl="https://www.youtube.com/embed/nPmeOa-lCBc" // Example YouTube video of a chef cooking
       />
     </section>
   );
