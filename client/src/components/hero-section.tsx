@@ -25,7 +25,7 @@ export default function HeroSection() {
 
   // Video URL with quality parameters for mobile
   const getVideoUrl = () => {
-    const baseUrl = "https://www.youtube.com/embed/dsm4b__I1Nc";
+    const baseUrl = "https://youtu.be/PMrmxuJRPAM";
     const commonParams = "autoplay=1&mute=1&loop=1&playlist=dsm4b__I1Nc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&autohide=1";
     
     if (isMobile) {
